@@ -7,19 +7,25 @@ const activeNavLink = {
   color: "#343a40",
 };
 
-export const MenuItem: React.FC<{ items: IMenu[] }> = (props) => {
+const isCollapse = (menu: IMenu, curPage: string) => {
+  return (menu?.children ?? []).some((m: IMenu) => m.key === curPage);
+};
+
+export const MenuItem: React.FC<{ items: IMenu[]; curPage: string }> = (
+  props
+) => {
   return props.items.map((m: IMenu) => {
     const key = `${m.key}-path-${Math.random()}`;
     if (m.children) {
       return (
         <li key={key} className="uppercase py-3">
-          <details open>
+          <details open={isCollapse(m, props.curPage)}>
             <summary className="hover:bg-gray-700">
               <Icon icon={m.icon} />
               {m.key}
             </summary>
             <ul className="m-0">
-              <MenuItem items={m.children} />
+              <MenuItem items={m.children} curPage={props.curPage} />
             </ul>
           </details>
         </li>

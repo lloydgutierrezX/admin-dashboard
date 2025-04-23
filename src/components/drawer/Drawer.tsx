@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Menu from "../menu/Menu";
 
 function Drawer() {
@@ -12,9 +13,9 @@ function Drawer() {
       ></label>
 
       <div className="menu min-h-full w-70 px-4 py-0 bg-gray-800 text-white">
-        <a href="/" className="p-4 text-2xl font-sans font-semibold">
+        <NavLink to="/" className="p-4 text-2xl font-sans font-semibold">
           {projectTitle}
-        </a>
+        </NavLink>
         <div className="border-t border-white/15">
           <Menu />
         </div>
