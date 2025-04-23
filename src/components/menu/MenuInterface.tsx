@@ -13,7 +13,7 @@ export interface IMenu extends IMenuContent {
 export const jsonMenu = [
   {
     key: "dashboard",
-    path: "/",
+    path: "/dashboard",
     is_active: true,
     icon: "house",
   },
