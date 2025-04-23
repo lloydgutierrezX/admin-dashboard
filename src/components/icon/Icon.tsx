@@ -1,0 +1,67 @@
+import {
+  CalendarClock,
+  CircleUser,
+  FileUser,
+  FolderCog,
+  House,
+  ShieldUser,
+  UserCog,
+  ChevronUp,
+  ChevronDown,
+  PencilOff,
+  Trash,
+  Plus,
+  Menu,
+  User,
+  Settings,
+} from "lucide-react";
+
+export const Icon = ({ icon = "", classNames = "" }) => {
+  if (!icon) {
+    return;
+  }
+
+  return (
+    <>
+      {(() => {
+        switch (icon) {
+          case "settings":
+            return <Settings className={classNames} />;
+          case "user-cog":
+            return <UserCog className={classNames} />;
+          case "user":
+            return <User className={classNames} />;
+          case "menu":
+            return <Menu className={classNames} />;
+          case "house":
+            return <House className={classNames} />;
+          case "calendarclock":
+            return <CalendarClock className={classNames} />;
+          case "foldercog":
+            return <FolderCog className={classNames} />;
+          case "fileuser":
+            return <FileUser className={classNames} />;
+          case "usercog":
+            return <UserCog className={classNames} />;
+          case "circleuser":
+            return <CircleUser className={classNames} />;
+          case "shielduser":
+            return <ShieldUser className={classNames} />;
+          case "chevronup":
+            return <ChevronUp className={classNames} />;
+          case "chevrondown":
+            return <ChevronDown className={classNames} />;
+          case "penciloff":
+            return <PencilOff className={classNames} />;
+          case "trash":
+            return <Trash className={classNames} />;
+          case "plus":
+            return <Plus className={classNames} />;
+          default:
+            console.warn(`No icon for ${icon}`);
+            return "";
+        }
+      })()}
+    </>
+  );
+};
