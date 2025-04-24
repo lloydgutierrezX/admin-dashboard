@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function NotFound() {
   return (
@@ -12,9 +12,9 @@ export default function NotFound() {
         had its name changed or is temporarily unavailable.
       </label>
 
-      <NavLink to="/" className="btn btn-link">
+      <Link to="/" className="btn btn-link">
         Go to Home page
-      </NavLink>
+      </Link>
     </div>
   );
 }
