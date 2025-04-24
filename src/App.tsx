@@ -26,7 +26,10 @@ function App() {
               <Icon icon="menu" classNames="text-center" />
             </label>
           </div>
-          <main>
+          <main className="p-10">
+            <h1 className="uppercase text-3xl font-bold my-2">
+              {currentModule}
+            </h1>
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />

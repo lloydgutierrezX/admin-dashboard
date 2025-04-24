@@ -61,7 +61,7 @@ export const jsonMenu = [
       },
       {
         key: "permissions",
-        path: "management/permissions",
+        path: "security/permissions",
         is_active: true,
         icon: "shielduser",
       },

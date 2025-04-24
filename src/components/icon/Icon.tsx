@@ -14,6 +14,7 @@ import {
   Menu,
   User,
   Settings,
+  LogOut,
 } from "lucide-react";
 
 export const Icon = ({ icon = "", classNames = "" }) => {
@@ -25,6 +26,8 @@ export const Icon = ({ icon = "", classNames = "" }) => {
     <>
       {(() => {
         switch (icon) {
+          case "log-out":
+            return <LogOut className={classNames} />;
           case "settings":
             return <Settings className={classNames} />;
           case "user-cog":
