@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Menu from "../menu/Menu";
 import { Icon } from "../icon/Icon";
 
@@ -14,12 +14,12 @@ function Drawer() {
       ></label>
 
       <div className="menu min-h-full w-70 p-0 bg-gray-800 text-white">
-        <NavLink
+        <Link
           to="/"
           className="mx-2 p-4 text-2xl font-sans font-semibold hover:cursor-pointer"
         >
           {projectTitle}
-        </NavLink>
+        </Link>
         <div className="px-2 border-t border-white/15 max-h-[calc(100vh-100px)] overflow-auto">
           <Menu />
         </div>
