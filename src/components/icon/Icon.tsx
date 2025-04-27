@@ -16,8 +16,14 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
+import { memo } from "react";
 
-export const Icon = ({ icon = "", classNames = "" }) => {
+const Icon = memo(function Icon(props: {
+  icon: string | undefined;
+  classNames: string;
+}) {
+  const { icon, classNames } = props;
+
   if (!icon) {
     return;
   }
@@ -67,4 +73,6 @@ export const Icon = ({ icon = "", classNames = "" }) => {
       })()}
     </>
   );
-};
+});
+
+export default Icon;

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import Menu from "../menu/Menu";
-import { Icon } from "../icon/Icon";
+import Icon from "../icon/Icon";
+import { memo } from "react";
 
-function Drawer() {
+const Drawer = memo(function Drawer() {
   const projectTitle = import.meta.env.VITE_PROJECT_TITLE;
 
   return (
@@ -23,15 +24,18 @@ function Drawer() {
         <div className="px-2 border-t border-white/15 max-h-[calc(100vh-100px)] overflow-auto">
           <Menu />
         </div>
-        <button className="min-w-full h-15 fixed bottom-0 px-4 py-0 btn btn-ghost rounded-none gap-3 border-0 text-base hover:bg-gray-700 hover:cursor-pointer hover:text-white">
+        <Link
+          to="/login"
+          className="min-w-full h-15 fixed bottom-0 px-4 py-0 btn btn-ghost rounded-none gap-3 border-0 text-base hover:bg-gray-700 hover:cursor-pointer hover:text-white"
+        >
           <Icon icon="log-out" classNames="flex-none hover:cursor-pointer" />
           <label className="grow text-left text-base hover:cursor-pointer">
             Logout
           </label>
-        </button>
+        </Link>
       </div>
     </div>
   );
-}
+});
 
 export default Drawer;

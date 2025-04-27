@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { Icon } from "../icon/Icon";
+import Icon from "../icon/Icon";
 import { IMenu } from "./MenuInterface";
+import { memo, useMemo } from "react";
+import { usePageContext } from "../../hooks/Page";
 
 const activeNavLink = {
   backgroundColor: "#ffffffe6",
@@ -11,21 +13,25 @@ const isCollapse = (menu: IMenu, curPage: string) => {
   return (menu?.children ?? []).some((m: IMenu) => m.key === curPage);
 };
 
-export const MenuItem: React.FC<{ items: IMenu[]; curPage: string }> = (
-  props
-) => {
+const MenuItem = memo(function MenuItem(props: { items: IMenu[] }) {
+  const currentPath = usePageContext();
+  const currentPage = useMemo(
+    () => currentPath[currentPath.length - 1],
+    [currentPath]
+  );
+
   return props.items.map((m: IMenu) => {
     const key = `${m.key}-path-${Math.random()}`;
     if (m.children) {
       return (
         <li key={key} className="uppercase py-3">
-          <details open={isCollapse(m, props.curPage)}>
+          <details open={isCollapse(m, currentPage)}>
             <summary className="hover:bg-gray-700">
-              <Icon icon={m.icon} />
+              <Icon icon={m.icon} classNames="" />
               {m.key}
             </summary>
             <ul className="m-0">
-              <MenuItem items={m.children} curPage={props.curPage} />
+              <MenuItem items={m.children} />
             </ul>
           </details>
         </li>
@@ -42,10 +48,12 @@ export const MenuItem: React.FC<{ items: IMenu[]; curPage: string }> = (
           to={m.path || "/"}
           style={({ isActive }) => (isActive ? activeNavLink : {})}
         >
-          <Icon icon={m.icon} />
+          <Icon icon={m.icon} classNames="" />
           {m.key}{" "}
         </NavLink>
       </li>
     );
   });
-};
+});
+
+export default MenuItem;
