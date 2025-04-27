@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import Drawer from "./components/drawer/Drawer";
-import { Icon } from "./components/icon/Icon";
+import Icon from "./components/icon/Icon";
 
-import Dashboard from "./pages/dashboard/Dashboard";
-import NotFound from "./pages/notfound/NotFound";
+import Dashboard from "./pages/Dashboard";
+import NotFound from "./pages/NotFound";
 
 import { PageContext } from "./hooks/Page";
 
